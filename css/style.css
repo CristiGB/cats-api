@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;500;600;700&display=swap');
 
+:root{
+    --first-color: #d6b590;
+    --first-colo-alt: #caa383;
+    --body-color: rgb(245, 245, 245);
+
+    --text-color: #211f22;
+    --text-color-light: rgb(175, 170, 170);
+}
 
 *{
     margin: 0;
@@ -9,13 +17,33 @@
 
 body{
     font-family: 'Barlow', sans-serif;
+    background: var(--body-color);
+    color: var(--text-color);
 }
+
+a{
+    text-decoration: none;
+}
+
 ul{
     list-style: none;
 }
 
 .button{
+    padding: .75rem;
+    font-weight: 600;
+    color: var(--first-color);
+    background-color: transparent;
     border-radius: 4rem;
+    border: 1px solid #f4e8da;
+    transition: .3s;
+}
+
+.button:hover{
+    cursor: pointer;
+    border: 1px solid #f3f0ed;
+    color: var(--body-color);
+    background-color: var(--first-color);  
 }
 
 /* ---------- HEADER ------------*/
@@ -79,20 +107,22 @@ ul{
     row-gap: 2rem;
 }
 
+.home__title > span{
+    color: var(--first-color);
+}
+
 .Titular .random__button{
     width: 70%;
     display: inline-block;
-    padding: .75rem;
+    box-shadow: -1px 1px 3px 0px var(--first-color);
 }
 
-.random__button:hover{
-    cursor: pointer;
-}
+
 
 /* collage random */
 
 .galery{
-    margin-block: 3rem;
+    margin-block: 3rem 1rem;
     width: 100%;
     height: 18rem;
    
@@ -126,21 +156,32 @@ ul{
     bottom: -.75rem;
     font-size: 1.5rem;
     text-align: center;
-    color: aliceblue;
-    background: rgb(2, 2, 2);
+    color: rgb(247, 242, 242);
+    background: var(--first-color);
     border-radius: 1rem;
+    transition: .3s;
 }
+
+.heart:hover{
+    color: var(--first-color);
+    background-color: rgb(247, 242, 242);
+    cursor: pointer;
+}
+
+
 
 /*-------- favorites---------*/
 
 .section__title{
     text-align: center;
     margin-block-end: 2.5rem;
+    text-shadow: 1px 2px 4px var(--first-color);
 }
 
 .collage__favorites{
     display: grid;
     justify-content: center;
+    padding-block-start: 1rem;
 }
 
 
@@ -152,8 +193,8 @@ ul{
 
 .container__input {
     display: flex;
-    background: #b9b9b9;
-    border: 4px dashed #c39f77;
+    background: #f0ebeb;
+    border: 4px dashed var(--first-color);
     padding: 2rem 1rem;
     border-radius: 6px;
     width: 100%;
@@ -161,7 +202,7 @@ ul{
     max-height: 25rem;
     margin: 0 auto;
     margin-bottom: 20px;
-    color: rgb(80, 79, 79);
+    color: var(--text-color-light);
     font-weight: 500;
     align-items: center;
     justify-content: center;
@@ -177,7 +218,7 @@ ul{
 }
 
 .zone__prompt  label{
-    color: #fff;
+    color: var(--first-color);
     font-weight: 700;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -188,14 +229,14 @@ ul{
     column-gap: .5rem;
 }
 
-.uploadInput:focus + label,
-.uploadInput + label:hover{
-    color: #c39f77;
+.zone__prompt:focus label,
+.zone__prompt label:hover{
+    color: #bb7878;
     cursor: pointer;
 }
 
 .dragover{
-    border: 2px dashed #e7c9a6;;
+    border: 4px dashed #f0e0ce;;
 }
 
 .zone__thumb{
@@ -222,6 +263,58 @@ ul{
 
 .buttonForm{
     padding: .75rem 2rem;
+    border: none;
+    color: var(--body-color);
+    background-color: var(--first-color);
+}
+
+.buttonForm:hover{
+    background-color: var(--first-colo-alt);
+    cursor: pointer;
+}
+
+/*--------------kittys-------------*/
+
+.kittys{
+    background: #4d4242;
+    border-radius: .5rem;
+}
+
+.kittys__container{
+    display: grid;
+    row-gap: 5rem;
+}
+
+.kittys__data{
+    text-align: center;
+}
+
+.kitty__title{
+    color: var(--first-colo-alt);
+    text-shadow: 1px 2px 4px var(--first-colo-alt);
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.kittys__description{
+    margin-bottom: 4rem;
+    font-weight: 500;
+    color: var(--body-color);
+}
+
+.kittys__button{
+    padding: 1rem 2rem;
+    color: var(--body-color);
+}
+
+.kitty__image{
+    width: 200px;
+}
+
+.kitty__image img{
+    max-width: 100%;
+    height: auto;
 }
 
 
@@ -231,7 +324,7 @@ ul{
     margin-block-start: 2rem;
     text-align: center;
     font-weight: 600;
-    color: rgb(88, 88, 88);
+    color: var(--text-color-light);
 }
 
 .socialMedia{
@@ -239,8 +332,14 @@ ul{
     margin-block-start: 1rem;
     justify-content: center;
     column-gap: .5rem;
+    color: rgb(64 67 69);
 }
 
 .socialMedia img{
     filter: contrast(.5);
 }
+
+.socialMedia li:hover{
+    cursor: pointer;
+}
+
