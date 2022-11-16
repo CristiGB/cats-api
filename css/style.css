@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;500;600;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Barlow', sans-serif;
+}
+ul{
+    list-style: none;
+}
+
+.button{
+    border-radius: 4rem;
+}
+
+/* ---------- HEADER ------------*/
+
+.navbar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    justify-content: space-between;
+}
+
+.nav__menu{
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    padding: 3rem 2.5rem;
+    background: rgb(255, 255, 255);
+    transition: top .4s;
+}
+
+.list__nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.nav__close:hover,
+.nav__toggle:hover{
+    cursor: pointer;
+}
+
+.nav__toggle,.nav__close{
+    font-size: 1.25rem;
+}
+
+.nav__close{
+    position: absolute;
+    right: 2.5rem;
+    top: 2rem;
+}
+
+/* ------------------MAIN ---------------*/
+
+/* Home section */
+
+.section{
+    padding-block: 2rem;
+    margin-inline: 1.5rem;
+}
+  
+.container {
+    max-width: 1024px;
+    margin-inline: 1.5rem;
+}
+
+.Titular{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.Titular .random__button{
+    width: 70%;
+    display: inline-block;
+    padding: .75rem;
+}
+
+.random__button:hover{
+    cursor: pointer;
+}
+
+/* collage random */
+
+.galery{
+    margin-block: 3rem;
+    width: 100%;
+    height: 18rem;
+   
+}
+
+
+.collage__random{
+    display: flex;
+    justify-content: center;
+    width: max-content;
+}
+
+.cat__random{
+    position: relative;
+    width: 11rem;
+    height: 17rem;
+}
+
+.cat__random img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 8px;
+}
+
+.heart{
+    position: absolute;
+    width: 3rem;
+    padding-block: .75rem;
+    right: 1rem;
+    bottom: -.75rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: aliceblue;
+    background: rgb(2, 2, 2);
+    border-radius: 1rem;
+}
+
+/*-------- favorites---------*/
+
+.section__title{
+    text-align: center;
+    margin-block-end: 2.5rem;
+}
+
+.collage__favorites{
+    display: grid;
+    justify-content: center;
+}
+
+
+/*-------- Upload ----------*/
+
+.upload{
+    text-align: center;
+}
+
+.container__input {
+    display: flex;
+    background: #b9b9b9;
+    border: 4px dashed #c39f77;
+    padding: 2rem 1rem;
+    border-radius: 6px;
+    width: 100%;
+    height: 20rem;
+    max-height: 25rem;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: rgb(80, 79, 79);
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+}
+
+.uploadInput{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.zone__prompt  label{
+    color: #fff;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-flex;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.uploadInput:focus + label,
+.uploadInput + label:hover{
+    color: #c39f77;
+    cursor: pointer;
+}
+
+.dragover{
+    border: 2px dashed #e7c9a6;;
+}
+
+.zone__thumb{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.zone__thumb::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+    text-align: center;
+  }
+
+.buttonForm{
+    padding: .75rem 2rem;
+}
+
+
+/*------------footer------------*/
+
+.footer{
+    margin-block-start: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(88, 88, 88);
+}
+
+.socialMedia{
+    display: flex;
+    margin-block-start: 1rem;
+    justify-content: center;
+    column-gap: .5rem;
+}
+
+.socialMedia img{
+    filter: contrast(.5);
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Cats Api</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+
+             <!-- Toggle Button -->
+
+             <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-2-line"></i>
+            </div>
+             <!-- dropdown menu in mob -->
+            <div class="nav__menu">
+                <ul class="list__nav">
+                    <li>Home</li>
+                    <li>Favorites</li>
+                    <li>Upload</li>
+                </ul>
+                 <!-- Close menu button -->
+                 <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__logo">
+                <svg data-name="Layer 1" height="30"  width="30" id="Layer_1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title/><path d="M19.5,19H17V11.90045a.06692.06692,0,0,0-.13141-.01965,3.00117,3.00117,0,0,1-3.02991,2.11493A3.11444,3.11444,0,0,1,11,10.83026V10a7,7,0,0,0-7,7v1a4,4,0,0,0,4,4h3.579A.99523.99523,0,0,1,11,21.1V20h2v1.1a.99523.99523,0,0,1-.579.9H15.579A.99523.99523,0,0,1,15,21.1V20h2v1.1a.99523.99523,0,0,1-.579.9H19.5a1.5,1.5,0,0,0,0-3Z"/><path d="M13,4,10,6V2.20711a.5.5,0,0,1,.85355-.35355Z"/><path d="M15,4l3,2V2.20711a.5.5,0,0,0-.85355-.35355Z"/><path d="M17,4H10V7a4,4,0,0,0,8,0V4ZM12.25,7.5A.75.75,0,1,1,13,6.75.75.75,0,0,1,12.25,7.5ZM16,7.5a.75.75,0,1,1,.75-.75A.75.75,0,0,1,16,7.5Z"/></svg>
+            </div>
+        </nav>
+
+    </header>
+    <main>
+        <section class="Home section" id="Home">
+            <div class="Titular container">
+                <h1 class="home__title">
+                    Find cute and funny pictures about cats.
+                </h1>
+                <button class="random__button button" type="button" >New Cats</button>
+            </div>
+
+            <div class="galery swiper">
+                <div class="collage__random swiper-wrapper">
+
+                </div>
+            </div>
+        </section>
+        <section class="favorites section" id="favorites">
+
+            <h2 class="section__title">Favorites</h2>
+
+            <div class="collage__favorites container">
+                
+            </div>
+            
+        </section>
+
+        <section class="upload section" id="Upload">
+
+            <h2 class="section__title">Upload Your Cat</h2>
+
+            <form id="uploadForm">
+                <div class="container__input" id="container__input">
+                    <input class="uploadInput" id="file" type="file" name="file" />
+                    <div class="zone__prompt">
+                        <p>Attach you pictures here <br><br> or</p>
+                        <label class="label_input_upload" for="file">
+                            <i class="ri-upload-2-fill"></i>
+                            <span>Select Picture</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="buttonForm button" type="button" onclick="uploadCat()">Upload picture</button>
+            </form>
+            
+        </section>
+
+    </main>
+    <footer class="footer section">
+        <span class="footer__copy">
+             &#169; CristiGB 2022 &#x2661;
+        </span>
+
+        <ul class="socialMedia">
+            <li>
+                <i class="ri-github-fill"></i>
+            </li>
+            <li>
+                <i class="ri-linkedin-box-fill"></i>
+            </li>
+            <li>
+                <img src="https://api.thecatapi.com/favicon.ico" alt="">
+            </li>
+        </ul>
+    </footer>
+    
+    <script src="./js/swiper-bundle.min.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js" defer></script>
+</body>
+</html>
