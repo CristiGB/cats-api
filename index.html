@@ -12,23 +12,23 @@
 </head>
 <body>
 
-    <header>
+    <header class="header">
         <nav class="navbar">
 
              <!-- Toggle Button -->
 
-             <div class="nav__toggle" id="nav-toggle">
+             <div class="nav__toggle" id="nav__toggle">
                 <i class="ri-menu-2-line"></i>
             </div>
              <!-- dropdown menu in mob -->
-            <div class="nav__menu">
+            <div class="nav__menu" id="nav__menu">
                 <ul class="list__nav">
-                    <li>Home</li>
-                    <li>Favorites</li>
-                    <li>Upload</li>
+                    <li><a href="#Home" class="nav__link">Home</a></li>
+                    <li><a href="#Favorites" class="nav__link">Favorites</a></li>
+                    <li><a href="#Upload" class="nav__link">Upload</a></li>
                 </ul>
                  <!-- Close menu button -->
-                 <div class="nav__close" id="nav-close">
+                 <div class="nav__close" id="nav__close">
                     <i class="ri-close-line"></i>
                 </div>
             </div>
@@ -40,48 +40,57 @@
 
     </header>
     <main>
-        <section class="Home section" id="Home">
+        <section class="home section" id="Home">
             <div class="Titular container">
                 <h1 class="home__title">
                     Find <span>cute</span> and <span>funny</span> pictures about cats.
                 </h1>
-                <button class="random__button button" type="button" >New Cats</button>
+                <button class="random__button button" type="button" onclick="loadPictures()">New Cats</button>
             </div>
 
-            <div class="galery swiper">
-                <div class="collage__random swiper-wrapper">
-
+            <div class="galery__container container">
+                <div class="galery swiper">
+                    <div class="collage__random swiper-wrapper">
+    
+                    </div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev navigation__button"></div>
+                    <div class="swiper-button-next navigation__button"></div>
                 </div>
             </div>
         </section>
-        <section class="favorites section" id="favorites">
+        <section class="favorites section" id="Favorites">
 
-            <h2 class="section__title">Favorites</h2>
+            <div class="favorites__container container">
+                <h2 class="section__title">Favorites</h2>
 
-            <div class="collage__favorites container">
-                
+                <div class="collage__favorites container">
+                    
+                </div>
             </div>
             
         </section>
 
         <section class="upload section" id="Upload">
 
-            <h2 class="section__title">Upload Your Cat</h2>
+            <div class="upload__container container">
+                <h2 class="section__title">Upload Your Cat</h2>
 
-            <form id="uploadForm">
-                <div class="container__input" id="container__input">
-                    <input class="uploadInput" id="file" type="file" name="file" />
-                    <div class="zone__prompt">
-                        <p>Attach you pictures here <br><br> or</p>
-                        <label class="label_input_upload" for="file">
-                            <i class="ri-upload-2-fill"></i>
-                            <span>Select Picture</span>
-                        </label>
+                <form id="uploadForm" >
+                    <div class="container__input" id="container__input">
+                        <input class="uploadInput" id="file" type="file" name="file" onchange="verificarInput(this)" />
+                        <div class="zone__prompt">
+                            <p>Attach you pictures here <br><br> or</p>
+                            <label class="label_input_upload" for="file" >
+                                <i class="ri-upload-2-fill"></i>
+                                <span>Select Picture</span>
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <button class="buttonForm button" type="button" onclick="uploadCat()">Upload picture</button>
-            </form>
-            
+                    <button class="buttonForm button" type="button" onclick="uploadCat()">Upload picture</button>
+                </form>
+                
+            </div>
         </section>
 
         <section class="kittys section">
@@ -106,27 +115,36 @@
         </section>
 
     </main>
-    <footer class="footer section">
+    <footer class="footer section container">
         <span class="footer__copy">
              &#169; CristiGB 2022 &#x2661;
         </span>
 
         <ul class="socialMedia">
             <li>
-                <i class="ri-github-fill"></i>
+                <a href="https://github.com/CristiGB">
+                    <i class="ri-github-fill"></i>
+                </a>            
             </li>
             <li>
-                <i class="ri-linkedin-box-fill"></i>
+                <a href="https://www.linkedin.com/in/isabel-gomez-balvin/">
+                    <i class="ri-linkedin-box-fill"></i>
+                </a>
             </li>
             <li>
-                <img src="https://api.thecatapi.com/favicon.ico" alt="">
+                <a href="https://thecatapi.com">
+                    <img src="https://api.thecatapi.com/favicon.ico" alt="">
+                </a>
+                
             </li>
         </ul>
     </footer>
     
     <script src="./js/swiper-bundle.min.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./js/script.js" defer></script>
     <script src="./js/events.js" defer></script>
+    <script src="./js/api.js" defer></script>
+    <script src="./js/script.js" defer></script>
+    
 </body>
 </html>

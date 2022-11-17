@@ -1,4 +1,3 @@
-const iconsHeart = [...document.querySelectorAll('.dislike')]
 const dropZoneElement = document.getElementById("container__input");
 const inputElement = document.querySelector('.uploadInput');
 
@@ -6,22 +5,45 @@ const inputElement = document.querySelector('.uploadInput');
 /**----------------EVENTS-------------- */
 /**------------------------------------- */
 
-/**---------chance icon------------- */
+/**---------chance icon and disliked------------- */
 
-console.log(iconsHeart)
-iconsHeart.forEach(iconHeart =>{
-    iconHeart.addEventListener('mouseenter',(event) => {
-        event.target.classList.remove('ri-heart-fill')
-        event.target.classList.add('ri-dislike-fill')
+async function AsignarEventDislike(deleteImage){
+
+    const iconsDislike = [...document.querySelectorAll('.dislike')]
+    console.log('load dislike')
+
+    iconsDislike.forEach(iconHeart =>{
+        iconHeart.addEventListener('mouseenter',(event) => {
+            event.target.classList.remove('ri-heart-fill')
+            event.target.classList.add('ri-dislike-fill')
+        }) 
+        iconHeart.addEventListener('mouseleave',(event) => {
+            event.target.classList.remove('ri-dislike-fill')
+            event.target.classList.add('ri-heart-fill')
+        }) 
+    });
+
+    iconsDislike.forEach(iconDislike =>{
+        iconDislike.onclick = ()=> deleteImage(iconDislike.previousSibling.id)
+    });
+    
+}
+
+
+/**--------- Liked------------- */
+
+async function AsignarEventLiked(saveImage){
+    const iconsLike = [...document.querySelectorAll('.like')]
+    console.log('load  Liked')
+
+    iconsLike.forEach(iconLike =>{
+
+      iconLike.onclick = ()=> saveImage(iconLike.previousSibling.id)
+
     }) 
-})
-iconsHeart.forEach(iconHeart =>{
-    iconHeart.addEventListener('mouseleave',(event) => {
-        event.target.classList.remove('ri-dislike-fill')
-        event.target.classList.add('ri-heart-fill')
-    }) 
-})
-  
+
+}
+
 
 /**----------- Drag File----------- */
 
@@ -55,16 +77,19 @@ dropZoneElement.addEventListener("drop", (event) => {
   dropZoneElement.classList.remove("dragover");
 });
 
+/**-----when use choosefile----------- */
+
+function verificarInput(archivo){
+	const dropZoneElement = document.getElementById("container__input")
+	updateThumbnail(dropZoneElement, archivo.files[0])
+}
+
 // Show miniature
 
 async function updateThumbnail(dropZone, file){
   
   let thumbnailElement = dropZone.querySelector(".zone__thumb");
-  // First time - remove titles
-  if (dropZone.querySelector(".zone__prompt")) {
-    console.log('nooo')
-    dropZone.querySelector(".zone__prompt").remove();
-  }
+  
   // there is no thumbnail element, so lets create it
   if (!thumbnailElement) {
     thumbnailElement = document.createElement("div");
@@ -88,6 +113,20 @@ async function updateThumbnail(dropZone, file){
   } else {
     thumbnailElement.style.backgroundImage = null;
   }
+}
+
+/*---------- Imagen cargando------------ */
+
+async function subiendoImagen(load){
+  
+  let thumbnailElement = dropZoneElement.querySelector(".zone__thumb");
+  if(load){
+    thumbnailElement.classList.add('loading')
+    thumbnailElement.textContent="Loanding...."
+    thumbnailElement.style.backgroundImage = null;
+  }else{
+    thumbnailElement.remove()
+  } 
 
 }
 

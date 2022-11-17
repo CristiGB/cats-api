@@ -19,10 +19,12 @@ body{
     font-family: 'Barlow', sans-serif;
     background: var(--body-color);
     color: var(--text-color);
+    transition: .3s;
 }
 
 a{
     text-decoration: none;
+    color:inherit;
 }
 
 ul{
@@ -30,7 +32,7 @@ ul{
 }
 
 .button{
-    padding: .75rem;
+    padding: 1rem 2rem;
     font-weight: 600;
     color: var(--first-color);
     background-color: transparent;
@@ -47,6 +49,13 @@ ul{
 }
 
 /* ---------- HEADER ------------*/
+
+.header{
+    position: fixed;
+    width: 100%;
+    background: var(--body-color);
+    z-index: 100;
+}
 
 .navbar{
     position: relative;
@@ -69,7 +78,16 @@ ul{
 .list__nav {
     display: flex;
     flex-direction: column;
-    row-gap: 1.5rem;
+    gap: 1.5rem;
+}
+
+.nav__link{
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.nav__link:hover{
+    color: var(--first-color);
 }
 
 .nav__close:hover,
@@ -87,24 +105,31 @@ ul{
     top: 2rem;
 }
 
+.show-menu{
+    top: 0;
+}
+
+
 /* ------------------MAIN ---------------*/
 
 /* Home section */
 
 .section{
-    padding-block: 2rem;
-    margin-inline: 1.5rem;
+    padding: 2rem 1rem;
 }
   
 .container {
     max-width: 1024px;
-    margin-inline: 1.5rem;
+}
+
+.home{
+    padding-block-start: 5rem;
 }
 
 .Titular{
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
+    gap: 2rem;
 }
 
 .home__title > span{
@@ -113,6 +138,8 @@ ul{
 
 .Titular .random__button{
     width: 70%;
+    padding-inline: .5rem;
+    max-width: 200px;
     display: inline-block;
     box-shadow: -1px 1px 3px 0px var(--first-color);
 }
@@ -137,7 +164,7 @@ ul{
 
 .cat__random{
     position: relative;
-    width: 11rem;
+    width: 14rem;
     height: 17rem;
 }
 
@@ -168,9 +195,29 @@ ul{
     cursor: pointer;
 }
 
+.navigation__button{
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--first-color);
+    border-radius: 50%;
+}
+
+.navigation__button::after{
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--body-color);
+}
 
 
 /*-------- favorites---------*/
+
+.favorites__container{
+    justify-items: center;
+}
+
+.favorites{
+    margin-block-end: 4rem;
+}
 
 .section__title{
     text-align: center;
@@ -182,6 +229,16 @@ ul{
     display: grid;
     justify-content: center;
     padding-block-start: 1rem;
+    gap: 1.5rem;
+}
+
+.dislike{
+    color: var(--first-color);
+    background:rgb(247, 242, 242);
+}
+.dislike:hover{
+    color: rgb(247, 242, 242);
+    background:var(--first-color);
 }
 
 
@@ -192,6 +249,7 @@ ul{
 }
 
 .container__input {
+    position: relative;
     display: flex;
     background: #f0ebeb;
     border: 4px dashed var(--first-color);
@@ -240,9 +298,9 @@ ul{
 }
 
 .zone__thumb{
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 95%;
+    height: 95%;
     border-radius: 10px;
     overflow: hidden;
     background-size: cover;
@@ -262,13 +320,14 @@ ul{
   }
 
 .buttonForm{
-    padding: .75rem 2rem;
+    width: 100%;
     border: none;
     color: var(--body-color);
     background-color: var(--first-color);
 }
 
 .buttonForm:hover{
+    border: none;
     background-color: var(--first-colo-alt);
     cursor: pointer;
 }
@@ -276,13 +335,15 @@ ul{
 /*--------------kittys-------------*/
 
 .kittys{
-    background: #4d4242;
-    border-radius: .5rem;
+    margin-block-start: 5rem;
 }
 
 .kittys__container{
     display: grid;
+    padding: 3rem 2rem;
     row-gap: 5rem;
+    background: #4d4242;
+    border-radius: .5rem;
 }
 
 .kittys__data{
@@ -304,12 +365,13 @@ ul{
 }
 
 .kittys__button{
-    padding: 1rem 2rem;
-    color: var(--body-color);
+    color: var(--first-colo-alt);
+    background-color: var(--body-color);
 }
 
 .kitty__image{
     width: 200px;
+    justify-self: center;
 }
 
 .kitty__image img{
@@ -341,5 +403,137 @@ ul{
 
 .socialMedia li:hover{
     cursor: pointer;
+    color: var(--first-colo-alt);
 }
 
+/*----------- Scroll bar -------------*/
+
+::-webkit-scrollbar{
+    width: .6rem;
+    border-radius: .5rem;
+    background-color: hsl(24, 52%, 74%);
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: hsl(21, 15%, 26%);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    border-radius: .5rem;
+    background-color: hsl(18, 12%, 29%);
+}
+
+/* Active link */
+
+.active-link{
+    color: var(--first-color);
+}
+
+/*--------------loading---------------*/
+
+.loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background-color: var(--text-color);
+}
+
+.loading::after{
+    content: "";
+    display: none;
+}
+
+/*---------------breakpoint-------------*/
+
+/* Medium devices */
+
+@media screen and (min-width: 570px) {
+    .Titular{
+        flex-direction: row;
+        align-items: center;
+        margin-block-end: 5rem;
+    }
+    .container{
+         margin-inline: 1rem;
+    }
+    .collage__favorites{
+        width: max-content;
+        margin-inline: auto;
+        grid-template-columns: repeat(2,1fr);
+        justify-items: center;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .nav__toggle,
+    .nav__close{
+        display: none;
+    }
+    .nav__menu{
+        position: relative;
+        padding: 0;
+        top: 0;
+        width: 50%;
+        background-color: transparent;
+    }
+
+    .list__nav{
+        flex-direction: row;
+    }
+    
+    .home__title{
+        font-size: 2.5rem;
+        max-width: 700px;
+    }   
+
+    .section__title{
+        margin-bottom: 4rem;
+    }
+    .buttonForm{
+        max-width: 50rem;
+    }
+
+    .kitty__image{
+        width: 300px;
+    }
+
+    .footer{
+        display: flex;
+        margin-inline: 2rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .socialMedia{
+        margin-block-start: 0;
+    }
+    .collage__favorites{
+        grid-template-columns: repeat(auto-fit,250px);
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .container {
+        margin-inline: auto;
+    }
+
+    .section__title{
+        font-size: 2rem;
+    }
+
+    .kittys__container{
+        padding-block: 5rem;
+        grid-auto-flow: column;
+        grid-template-columns: .7fr max-content;
+        column-gap: 4rem;
+        justify-content: center;
+    }
+    .kitty__title{
+        margin-block-end: 2rem;
+    }
+    .kitty__image{
+        width: 400px;
+    }
+    
+}
